@@ -23,6 +23,7 @@
     "bootstrap": "^5.2.3",
     "date-fns": "^3.6.0",
     "deepmerge": "^4.3.1",
+    "es6-promise": "^4.2.8",
     "framer-motion": "^11.3.21",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
