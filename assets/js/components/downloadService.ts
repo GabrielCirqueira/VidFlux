@@ -1,5 +1,5 @@
 export async function fetchDownload(url: string) {
-    const rota = "/download";
+    const rota = "/api/download/youtube";
     const reponseProps = {
         method: "POST",
         headers: {

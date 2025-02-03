@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VideoDownloadController extends AbstractController
 {
-    #[Route('/download', name: 'download_video', methods: ['POST'])]
+    #[Route('/api/download/youtube', name: 'download_video', methods: ['POST'])]
     public function download(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);

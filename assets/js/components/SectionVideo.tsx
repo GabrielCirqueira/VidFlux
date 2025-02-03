@@ -8,6 +8,7 @@ import {
   Image,
   Link,
   Stack,
+  Center,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -46,7 +47,9 @@ export function SectionVideo(props : videoProps) {
             p={5}
             pt={10}>
             <Heading fontSize={'2xl'} fontFamily={'arial'}>
+              <Center>
               {props.title}
+              </Center>
             </Heading>
             <Text
               textAlign={'center'}
