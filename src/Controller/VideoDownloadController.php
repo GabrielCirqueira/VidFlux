@@ -19,9 +19,18 @@ class VideoDownloadController extends AbstractController
             return new JsonResponse(['error' => 'URL não fornecida'], 400);
         }
 
-        $ytDlpPath = $this->getParameter('kernel.project_dir') . '/bin/yt-dlp.exe';
+        $isWindows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
 
-        $metadataCommand = "\"$ytDlpPath\" --dump-json \"$videoUrl\"";
+        $ytDlpPath = $this->getParameter('kernel.project_dir') . '/bin/yt-dlp' . ($isWindows ? '.exe' : '');
+        if (!$isWindows) {
+            $ytDlpPath = escapeshellcmd($ytDlpPath);
+        }
+
+        if (!file_exists($ytDlpPath) || (!is_executable($ytDlpPath) && !$isWindows)) {
+            return new JsonResponse(['error' => 'yt-dlp não encontrado ou sem permissão de execução'], 500);
+        }
+
+        $metadataCommand = "$ytDlpPath --dump-json " . escapeshellarg($videoUrl);
         $metadataJson = shell_exec($metadataCommand);
         $metadata = json_decode($metadataJson, true);
 
@@ -39,20 +48,19 @@ class VideoDownloadController extends AbstractController
             mkdir($outputPath, 0777, true);
         }
 
-        $downloadCommand = "\"$ytDlpPath\" -o \"$outputPath/%(title)s.%(ext)s\" \"$videoUrl\"";
+        $downloadCommand = "$ytDlpPath -o " . escapeshellarg("$outputPath/%(title)s.%(ext)s") . " " . escapeshellarg($videoUrl);
         shell_exec($downloadCommand);
 
         $files = glob("$outputPath/*.*");
 
         if ($files) {
-            usort($files, function($a, $b) {
+            usort($files, function ($a, $b) {
                 return filectime($b) - filectime($a);
             });
 
             $latestFile = reset($files);
             $fileName = basename($latestFile);
         } else {
-
             return new JsonResponse(['error' => 'Nenhum arquivo encontrado'], 404);
         }
 
