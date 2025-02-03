@@ -1,5 +1,7 @@
-export interface DownloadResponse {
-    mensagem?: string;
-    error?: string;
-    downloadUrl?: string;
+export type videoProps = {
+    title: string,
+    thumbnail: string,
+    description: string,
+    duration: string,
+    downloadUrl: string
 }

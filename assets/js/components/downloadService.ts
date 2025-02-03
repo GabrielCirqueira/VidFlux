@@ -1,7 +1,4 @@
-
-import { DownloadResponse } from "@components/types";
-
-export async function fetchDownload(url: string): Promise<DownloadResponse> {
+export async function fetchDownload(url: string) {
     const rota = "/download";
     const reponseProps = {
         method: "POST",

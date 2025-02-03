@@ -1,12 +1,12 @@
-import { Container } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import { DownloadForm } from "./DownloadForm";
 
 export function Home() {
     return(
-        <Container
+        <Box
             maxHeight={"sm"}
         >
             <DownloadForm/>
-        </Container>
+        </Box>
     )
 }
