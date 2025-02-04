@@ -9,9 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Enums\Plataforma;
 
-class VideoTiktokDownloadController extends AbstractController
+class VideoYoutubeDownloadController extends AbstractController
 {
-    #[Route('/api/download/tiktok', name: 'download_video_tiktok', methods: ['POST'])]
+    #[Route('/api/download/youtube', name: 'download_video_youtube', methods: ['POST'])]
     public function download(Request $request, VideoDownloadService $videoDownloadService): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
@@ -21,7 +21,7 @@ class VideoTiktokDownloadController extends AbstractController
             return new JsonResponse(['error' => 'URL não fornecida'], 400);
         }
 
-        $result = $videoDownloadService->downloadVideo($videoUrl, Plataforma::TIKTOK);
+        $result = $videoDownloadService->downloadVideo($videoUrl, Plataforma::YOUTUBE);
 
         return new JsonResponse($result);
     }

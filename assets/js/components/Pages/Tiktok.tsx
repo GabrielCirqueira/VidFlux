@@ -12,6 +12,7 @@ export function Tiktok() {
     const [video, setVideo] = useState<videoProps>({
         title: "",
         description: "",
+        plataforma: "",
         thumbnail: "",
         duration: "0",
         downloadUrl: "",
@@ -22,7 +23,7 @@ export function Tiktok() {
         setDownloadUrl("");
         setIsLoading(true);
 
-        const data = await fetchDownload(url);
+        const data = await fetchDownload(url, "tiktok");
 
         if (data.error) {
             setMensagem(data.error || "");

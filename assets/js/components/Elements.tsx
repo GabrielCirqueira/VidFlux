@@ -52,18 +52,19 @@ export function Elements(props : elementsProps) {
             {props.mensagem && (
                 <Text mt={3}>{props.mensagem}</Text>
             )}
-            <Link
-                bg={theme.colors[props.plataforma][500]}
-                _hover={{ bg: theme.colors[props.plataforma][600] }}
-                _active={{ bg: theme.colors[props.plataforma][700] }}
-                color="white"
+            <Button
+                mt={5}
+                bg={theme.colors.Button.normal}
+                _hover={{ bg: theme.colors.Button.hover }}
+                _active={{ bg: theme.colors.Button.active }}
+                color={ 'blackAlpha.900' }
                 rounded="full"
-                href="/"
                 width="100%"
+                onClick={() => window.location.href = '/'}
                 borderRadius={2}
             >
                 Voltar
-            </Link>
+            </Button>
             
         </Box>
     )

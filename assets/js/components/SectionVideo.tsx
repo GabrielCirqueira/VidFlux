@@ -22,7 +22,7 @@ export function SectionVideo(props : videoProps) {
     const isTruncated = props.description.length > maxLength;
 
     return (
-      <Box w="100%" py={{ base: 20, md: 16 }}>
+      <Box w="100%" py={{ base: 10, md: 6 }}>
         <Stack
           borderWidth="1px"
           borderRadius="lg"
@@ -47,13 +47,13 @@ export function SectionVideo(props : videoProps) {
             p={5}
             pt={10}>
             <Heading fontSize={'2xl'} fontFamily={'arial'}>
-              <Center>
+              <Text textAlign="center" >
               {props.title}
-              </Center>
+              </Text>
             </Heading>
             <Text
               textAlign={'center'}
-              color={useColorModeValue('gray.700', 'gray.400')}
+              color={'whiteAlpha.900'}
               px={3}>
                 {isTruncated ? `${props.description.slice(0, maxLength)}...` : props.description}
             </Text>
@@ -87,9 +87,9 @@ export function SectionVideo(props : videoProps) {
                 download
                 flex={1}
                 fontSize={'md'}
-                bg={theme.colors.primary[500]} 
-                _hover={{ bg: theme.colors.primary[600] }}
-                _active={{ bg: theme.colors.primary[700] }}
+                bg={theme.colors[props.plataforma][500]} 
+                _hover={{ bg: theme.colors[props.plataforma][600] }}
+                _active={{ bg: theme.colors[props.plataforma][700] }}
                 color="white"
                 rounded="full"
                 fontWeight={'semibold'}

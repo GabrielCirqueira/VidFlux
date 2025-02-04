@@ -38,13 +38,18 @@ const theme = extendTheme({
       800: "#0d4b38",
       900: "#05302a",
     },
+    Button: {
+      normal: "#FFFFFF",
+      hover: "#c9c3c3",
+      active: "#FFFFFF",
+    },
     background: "#1a1a1a",
-    text: "rgb(228, 228, 228)",
+    text: "#e4e4e4",
   },
   styles: {
     global: {
       body: {
-        bg: "linear-gradient(180deg, #2d2d2d,rgb(37, 37, 37))",
+        bg: "linear-gradient(180deg,rgb(61, 61, 61),rgb(37, 37, 37))",
         color: "text",
         minHeight: "100vh",
         overflowX: "hidden",

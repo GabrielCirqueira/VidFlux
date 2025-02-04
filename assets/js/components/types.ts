@@ -3,5 +3,6 @@ export type videoProps = {
     thumbnail: string,
     description: string,
     duration: string,
+    plataforma: string,
     downloadUrl: string
 }
