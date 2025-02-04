@@ -3,8 +3,9 @@ import { Container, Text, VStack } from "@chakra-ui/react";
 import { Elements } from "@components/Elements";
 import { fetchDownload } from "@components/downloadService";
 import {videoProps} from "@components/types"; 
+import { FaTiktok } from "react-icons/fa";
 
-export function Youtube() {
+export function TiktokPage() {
     const [url, setUrl] = useState<string>("");
     const [mensagem, setMensagem] = useState<string>("");
     const [downloadUrl, setDownloadUrl] = useState<string>("");
@@ -23,7 +24,7 @@ export function Youtube() {
         setDownloadUrl("");
         setIsLoading(true);
 
-        const data = await fetchDownload(url, "youtube");
+        const data = await fetchDownload(url, "tiktok");
 
         if (data.error) {
             setMensagem(data.error || "");
@@ -36,10 +37,11 @@ export function Youtube() {
     };
 
     return (
-        <Container maxW={'3xl'}>
+        <Container maxW={'5xl'}>
             <VStack gap={10}>
                 <Elements
-                    plataforma="Youtube"
+                    icon={FaTiktok}
+                    plataforma="Tiktok"
                     url={url}
                     video={video}
                     setUrl={setUrl}

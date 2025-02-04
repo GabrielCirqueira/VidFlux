@@ -8,7 +8,7 @@ const theme = extendTheme({
       200: "#ff8a8a",
       300: "#ff5c5c",
       400: "#ff6d6d",
-      500: "#e65f5f",
+      500: "red.500",
       600: "#cc5252",
       700: "#b24545",
       800: "#993838",
@@ -44,30 +44,17 @@ const theme = extendTheme({
       active: "#FFFFFF",
     },
     background: "#1a1a1a",
-    text: "#e4e4e4",
+    text: "rgb(48, 48, 48)",
   },
   styles: {
     global: {
       body: {
-        bg: "linear-gradient(180deg,rgb(61, 61, 61),rgb(37, 37, 37))",
+        bg: "rgb(251, 251, 251)",
         color: "text",
         minHeight: "100vh",
-        overflowX: "hidden",
-        animation: "gradientAnim 10s ease infinite",
       },
       "#root": {
         minHeight: "100vh",
-      },
-    },
-    "@keyframes gradientAnim": {
-      "0%": {
-        background: "linear-gradient(180deg, #2d2d2d, rgb(37, 37, 37))",
-      },
-      "50%": {
-        background: "linear-gradient(180deg, #444444, #2a2a2a)",
-      },
-      "100%": {
-        background: "linear-gradient(180deg, #2d2d2d, rgb(37, 37, 37))",
       },
     },
   },

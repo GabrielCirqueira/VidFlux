@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 
 import {videoProps} from "@components/types";
-import theme from "./theme";
+import theme from "@components/theme";
 
 export function SectionVideo(props : videoProps) {
 
@@ -28,7 +28,7 @@ export function SectionVideo(props : videoProps) {
           borderRadius="lg"
           height={{ sm: '476px', md: '20rem' }}
           direction={{ base: 'column', md: 'row' }}
-          boxShadow={'2xl'}
+          boxShadow={'5x2'}
           padding={4}>
           <Flex flex={1}>
             <Image
@@ -53,7 +53,7 @@ export function SectionVideo(props : videoProps) {
             </Heading>
             <Text
               textAlign={'center'}
-              color={'whiteAlpha.900'}
+              color={'black'}
               px={3}>
                 {isTruncated ? `${props.description.slice(0, maxLength)}...` : props.description}
             </Text>

@@ -10,7 +10,7 @@ import {
   useColorModeValue,
   createIcon,
 } from '@chakra-ui/react'
-import theme from './theme';
+import theme from '../theme';
 
 export function Title( { plataforma }: { plataforma: string } ) {
   return (

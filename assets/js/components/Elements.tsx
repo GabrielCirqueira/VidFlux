@@ -1,10 +1,12 @@
-import { Input, Button, Link, Text, VStack, Box, Spinner } from "@chakra-ui/react";
-import { Title } from "./Title";
-import { SectionVideo } from "@components/SectionVideo";
+import { Input, Button, Link, Text, VStack, Box, Spinner, Icon } from "@chakra-ui/react";
+import { Title } from "@components/includes/Title";
+import { SectionVideo } from "@components/includes/SectionVideo";
 import theme from "./theme";
 import {videoProps} from "@components/types";
+import { ReactElement, ElementType } from "react";
 
 type elementsProps = {
+    icon: ElementType;
     plataforma: string;
     url: string;
     setUrl: (url : string) => void;
@@ -17,7 +19,25 @@ type elementsProps = {
 
 export function Elements(props : elementsProps) {
     return (
-        <Box py={{ base: 20, md: 36 }}>
+        <Box
+            position="relative"
+            width={{ base: '100%', md: '100%' }}
+            borderWidth="1px"
+            borderRadius="lg"
+            mt={20}
+            boxShadow={'2xl'}
+            py={{ base: 20, md: 50 }}
+            px={{ base: 40, md: 50 }}
+        >
+        <Icon as={props.icon}
+            boxSize={20}
+            position="absolute"
+            top={-5}
+            left={-5}
+            color={theme.colors[props.plataforma][500]}
+            transform="rotate(-45deg)"
+        />
+
             <Title plataforma={props.plataforma} />
             <Input
                 type="text"

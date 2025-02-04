@@ -3,8 +3,9 @@ import { Container, Text, VStack } from "@chakra-ui/react";
 import { Elements } from "@components/Elements";
 import { fetchDownload } from "@components/downloadService";
 import {videoProps} from "@components/types"; 
+import { FaInstagram } from "react-icons/fa";
 
-export function Instagram() {
+export function InstagramPage() {
     const [url, setUrl] = useState<string>("");
     const [mensagem, setMensagem] = useState<string>("");
     const [downloadUrl, setDownloadUrl] = useState<string>("");
@@ -36,9 +37,10 @@ export function Instagram() {
     };
 
     return (
-        <Container maxW={'3xl'}>
+        <Container maxW={'5xl'}>
             <VStack gap={10}>
                 <Elements
+                    icon={FaInstagram}
                     plataforma="Instagram"
                     url={url}
                     video={video}

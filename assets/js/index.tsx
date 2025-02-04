@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom/client'
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Youtube } from '@components/Pages/Youtube';
-import { Tiktok } from '@components/Pages/Tiktok';
-import { Instagram } from '@components/Pages/Instagram';
+import { YoutubePage } from '@components/Pages/YoutubePage';
+import { TiktokPage } from '@components/Pages/TiktokPage';
+import { InstagramPage } from '@components/Pages/InstagramPage';
 import { Home } from '@components/Home'
 import theme from '@components/theme'
 
@@ -15,9 +15,9 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/download/youtube" element={<Youtube />} />
-        <Route path="/download/tiktok" element={<Tiktok />} />
-        <Route path="/download/instagram" element={<Instagram />} />
+        <Route path="/download/youtube" element={<YoutubePage />} />
+        <Route path="/download/tiktok" element={<TiktokPage />} />
+        <Route path="/download/instagram" element={<InstagramPage />} />
       </Routes>
     </Router>
   </ChakraProvider>
