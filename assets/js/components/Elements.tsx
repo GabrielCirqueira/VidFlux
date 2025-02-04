@@ -5,6 +5,7 @@ import theme from "./theme";
 import {videoProps} from "@components/types";
 
 type elementsProps = {
+    plataforma: string;
     url: string;
     setUrl: (url : string) => void;
     onclick: () => void;
@@ -17,27 +18,33 @@ type elementsProps = {
 export function Elements(props : elementsProps) {
     return (
         <Box py={{ base: 20, md: 36 }}>
-            <Title/>
+            <Title plataforma={props.plataforma} />
             <Input
                 type="text"
-                placeholder="Cole o Link do Video  aqui"
-                borderRadius={4}
+                placeholder="Cole o Link do Vídeo aqui"
+                borderRadius={2}
                 value={props.url}
                 onChange={(e) => props.setUrl(e.target.value)}
-                mb={3}
+                mb={5}
+                _placeholder={{ color: theme.colors.text }} 
+                _focus={{
+                    border: "0.5px solid",
+                    borderColor: theme.colors[props.plataforma][500],
+                    boxShadow: "0 0 0 2px " + theme.colors[props.plataforma][300],
+                }}
             />
           <Button
-            bg={theme.colors.primary[500]}
-            _hover={{ bg: theme.colors.primary[600] }}
-            _active={{ bg: theme.colors.primary[700] }}
+            bg={theme.colors[props.plataforma][500]}
+            _hover={{ bg: theme.colors[props.plataforma][600] }}
+            _active={{ bg: theme.colors[props.plataforma][700] }}
             color="white"
             rounded="full"
             w="100%"
-            borderRadius={4}
+            borderRadius={2}
             onClick={props.onclick}
             >
             {props.isLoading ? <Spinner size="sm" /> : "Baixar"}
-        </Button>
+          </Button>
             {props.video.downloadUrl && (
                <SectionVideo {...props.video} />
             )}
@@ -45,7 +52,18 @@ export function Elements(props : elementsProps) {
             {props.mensagem && (
                 <Text mt={3}>{props.mensagem}</Text>
             )}
-            
+            <Link
+                bg={theme.colors[props.plataforma][500]}
+                _hover={{ bg: theme.colors[props.plataforma][600] }}
+                _active={{ bg: theme.colors[props.plataforma][700] }}
+                color="white"
+                rounded="full"
+                href="/"
+                width="100%"
+                borderRadius={2}
+            >
+                Voltar
+            </Link>
             
         </Box>
     )

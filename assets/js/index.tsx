@@ -1,18 +1,23 @@
 import ReactDOM from 'react-dom/client'
 import { ChakraProvider } from '@chakra-ui/react'
-import { Home } from '@components/Home'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { DownloadForm } from "./components/DownloadForm";
+import { Youtube } from '@components/Pages/Youtube';
+import { Tiktok } from '@components/Pages/Tiktok';
+import { Instagram } from '@components/Pages/Instagram';
+import { Home } from '@components/Home'
+import theme from '@components/theme'
 
 const element = document.getElementById('root') as HTMLElement;
 const root = ReactDOM.createRoot(element);
 
 root.render(
-  <ChakraProvider >
+  <ChakraProvider theme={theme} >
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/download/youtube" element={<DownloadForm />} />
+        <Route path="/download/youtube" element={<Youtube />} />
+        <Route path="/download/tiktok" element={<Tiktok />} />
+        <Route path="/download/instagram" element={<Instagram />} />
       </Routes>
     </Router>
   </ChakraProvider>

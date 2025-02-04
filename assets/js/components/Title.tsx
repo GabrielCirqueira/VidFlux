@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import theme from './theme';
 
-export function Title() {
+export function Title( { plataforma }: { plataforma: string } ) {
   return (
     <>
         <Stack
@@ -22,15 +22,14 @@ export function Title() {
           >
           <Heading
             fontWeight={600}
-            color={"gray"}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
             Baixe vídeos do <br />
-            <Text as={'span'} color={theme.colors.text}>
-                YouTube rapidamente
+            <Text as={'span'} color={theme.colors[plataforma][500]}>
+                {plataforma} rapidamente
             </Text>
           </Heading>
-            <Text color={'gray.500'}>
+            <Text >
             Insira o link do vídeo e faça o download em poucos segundos.  
             Simples, rápido e gratuito!
             </Text>

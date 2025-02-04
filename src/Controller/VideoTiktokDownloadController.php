@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class VideoDownloadController extends AbstractController
+class VideoTiktokDownloadController extends AbstractController
 {
-    #[Route('/api/download/youtube', name: 'download_video', methods: ['POST'])]
-    public function download(Request $request): JsonResponse
+    #[Route('/api/download/tiktok', name: 'download_tiktok_video', methods: ['POST'])]
+    public function downloadTikTok(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
         $videoUrl = $data['url'] ?? null;
@@ -48,7 +48,7 @@ class VideoDownloadController extends AbstractController
             mkdir($outputPath, 0777, true);
         }
 
-        $downloadCommand = "$ytDlpPath -o " . escapeshellarg("$outputPath/%(title)s.%(ext)s") . " " . escapeshellarg($videoUrl);
+        $downloadCommand = "$ytDlpPath -o " . escapeshellarg("$outputPath/$title.mp4") . " " . escapeshellarg($videoUrl);
         shell_exec($downloadCommand);
 
         $files = glob("$outputPath/*.*");
