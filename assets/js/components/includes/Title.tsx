@@ -29,7 +29,7 @@ export function Title( { plataforma }: { plataforma: string } ) {
                 {plataforma} rapidamente
             </Text>
           </Heading>
-            <Text >
+            <Text fontSize={18} >
             Insira o link do vídeo e faça o download em poucos segundos.  
             Simples, rápido e gratuito!
             </Text>

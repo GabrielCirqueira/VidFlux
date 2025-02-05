@@ -4,6 +4,7 @@ import { Elements } from "@components/Elements";
 import { fetchDownload } from "@components/downloadService";
 import {videoProps} from "@components/types"; 
 import { FaInstagram } from "react-icons/fa";
+import theme from '@components/theme'
 
 export function InstagramPage() {
     const [url, setUrl] = useState<string>("");
@@ -37,7 +38,7 @@ export function InstagramPage() {
     };
 
     return (
-        <Container maxW={'5xl'}>
+        <Container maxW={theme.styles.WidthContainer}>
             <VStack gap={10}>
                 <Elements
                     icon={FaInstagram}

@@ -40,6 +40,7 @@ class VideoDownloadService
         $title = $metadata['title'] ?? 'Sem título';
         $description = $metadata['description'] ?? 'Sem descrição';
         $thumbnail = $metadata['thumbnail'] ?? '';
+        $localThumbnail = $this->baixarThumbnail($thumbnail, $plataforma);
         $duration = $metadata['duration'] ?? 0;
 
         $outputFile = "$outputPath/$title.mp4";
@@ -56,11 +57,27 @@ class VideoDownloadService
                 'description' => $description,
                 'duration' => $duration,
                 'downloadUrl' => "/videos/$plataforma/" . basename($outputFile),
-                'thumbnail' => $thumbnail,
+                'thumbnail' => $localThumbnail ?: $thumbnail,
                 'plataforma' => $plataforma
             ],
             'message' => 'Download concluído!',
             'downloadUrl' => "/videos/$plataforma/" . basename($outputFile),
         ];
+    }
+
+    private function baixarThumbnail(string $url, string $plataforma): string
+    {
+        $outputPath = "{$this->projectDir}/public/thumbs/{$plataforma}";
+
+        if (!is_dir($outputPath) && !mkdir($outputPath, 0777, true) && !is_dir($outputPath)) {
+            return '';
+        }
+
+        $filename = basename(parse_url($url, PHP_URL_PATH));
+        $filePath = "{$outputPath}/{$filename}";
+
+        file_put_contents($filePath, file_get_contents($url));
+
+        return "/thumbs/{$plataforma}/{$filename}";
     }
 }

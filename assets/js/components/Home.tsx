@@ -1,6 +1,6 @@
-import { DownloadForm } from "./DownloadForm";
 import { Box, Button, Container, Flex, Heading, Icon, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { FaYoutube, FaTiktok, FaInstagram } from "react-icons/fa";
+import {  } from '@chakra-ui/react';
 
 interface CardProps {
   heading: string;

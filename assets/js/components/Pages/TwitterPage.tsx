@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Container, Icon, Text, VStack } from "@chakra-ui/react";
+import { Container, Text, VStack } from "@chakra-ui/react";
 import { Elements } from "@components/Elements";
 import { fetchDownload } from "@components/downloadService";
-import {videoProps} from "@components/types";
-import { FaYoutube } from "react-icons/fa";
+import {videoProps} from "@components/types"; 
+import { FaTwitter } from "react-icons/fa";
 import theme from '@components/theme'
 
-export function YoutubePage() {
+export function TwitterPage() {
     const [url, setUrl] = useState<string>("");
     const [mensagem, setMensagem] = useState<string>("");
     const [downloadUrl, setDownloadUrl] = useState<string>("");
@@ -25,7 +25,7 @@ export function YoutubePage() {
         setDownloadUrl("");
         setIsLoading(true);
 
-        const data = await fetchDownload(url, "youtube");
+        const data = await fetchDownload(url, "twitter");
 
         if (data.error) {
             setMensagem(data.error || "");
@@ -41,8 +41,8 @@ export function YoutubePage() {
         <Container maxW={theme.styles.WidthContainer}>
             <VStack gap={10}>
                 <Elements
-                    icon={FaYoutube}
-                    plataforma="Youtube"
+                    icon={FaTwitter}
+                    plataforma="Twitter"
                     url={url}
                     video={video}
                     setUrl={setUrl}

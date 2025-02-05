@@ -16,6 +16,14 @@ class VideoYoutubeDownloadController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
         $videoUrl = $data['url'] ?? null;
+        
+        $parsedUrl = parse_url($videoUrl);
+        $host = $parsedUrl['host'];
+        $dominio = "youtube.com";
+
+        if (strpos($host, $dominio) == false) {
+            return new JsonResponse(['error' => 'Link fornecido não pertece ao Youtube!'], 400);
+        }
 
         if (!$videoUrl) {
             return new JsonResponse(['error' => 'URL não fornecida'], 400);

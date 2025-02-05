@@ -32,11 +32,23 @@ const theme = extendTheme({
       200: "#b9d8d5",
       300: "#9fd0cc",
       400: "#66b9a7",
-      500: "#2dbf87",
+      500: "#66b9a7",
       600: "#1b8c63",
       700: "#14684c",
       800: "#0d4b38",
       900: "#05302a",
+    },
+    Twitter: {
+      50: "#e8f5fe",
+      100: "#c3e8fd",
+      200: "#83d3fc",
+      300: "#3bb9fa",
+      400: "#1da1f2",
+      500: "#1a91da",
+      600: "#1782c2",
+      700: "#136ba0",
+      800: "#0e5179",
+      900: "#093752",
     },
     Button: {
       normal: "#FFFFFF",
@@ -47,6 +59,7 @@ const theme = extendTheme({
     text: "rgb(48, 48, 48)",
   },
   styles: {
+    WidthContainer: "4xl",
     global: {
       body: {
         bg: "rgb(251, 251, 251)",

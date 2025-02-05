@@ -1,9 +1,12 @@
-import { Input, Button, Link, Text, VStack, Box, Spinner, Icon } from "@chakra-ui/react";
+import { Input, Button, Link, Text, VStack, Box, Spinner, Icon, Flex, Center } from "@chakra-ui/react";
 import { Title } from "@components/includes/Title";
 import { SectionVideo } from "@components/includes/SectionVideo";
 import theme from "./theme";
 import {videoProps} from "@components/types";
 import { ReactElement, ElementType } from "react";
+import { FaTiktok, FaInstagram, FaYoutube, FaTwitter, FaHome } from "react-icons/fa";
+import { Alert, AlertIcon, AlertTitle, AlertDescription, SlideFade } from "@chakra-ui/react";
+import { InfoIcon } from "@chakra-ui/icons";
 
 type elementsProps = {
     icon: ElementType;
@@ -35,7 +38,7 @@ export function Elements(props : elementsProps) {
             top={-5}
             left={-5}
             color={theme.colors[props.plataforma][500]}
-            transform="rotate(-45deg)"
+            transform="rotate(-25deg)"
         />
 
             <Title plataforma={props.plataforma} />
@@ -70,21 +73,23 @@ export function Elements(props : elementsProps) {
             )}
 
             {props.mensagem && (
-                <Text mt={3}>{props.mensagem}</Text>
+                 <SlideFade in={!!props.mensagem} offsetY="10px">
+                 {props.mensagem && (
+                     <Alert alignItems={"center"} bg={theme.colors[props.plataforma][50]} status="info" borderRadius="md" boxShadow="md" mt={3}>
+                         <AlertIcon color={theme.colors[props.plataforma][500]} as={InfoIcon} />
+                         <AlertDescription fontSize={16} textAlign="center" fontFamily="sans-serif" >{props.mensagem}</AlertDescription>
+                     </Alert>
+                 )}
+             </SlideFade>
             )}
-            <Button
-                mt={5}
-                bg={theme.colors.Button.normal}
-                _hover={{ bg: theme.colors.Button.hover }}
-                _active={{ bg: theme.colors.Button.active }}
-                color={ 'blackAlpha.900' }
-                rounded="full"
-                width="100%"
-                onClick={() => window.location.href = '/'}
-                borderRadius={2}
-            >
-                Voltar
-            </Button>
+
+            <Flex justifyContent="center" gap={20} mt={10}>
+                <Link href="/" > <Icon  boxSize={7} as={FaHome} >  </Icon> </Link>
+                <Link href="/download/instagram" > <Icon  boxSize={7} as={FaInstagram} >  </Icon> </Link>
+                <Link href="/download/twitter" > <Icon  boxSize={7} as={FaTwitter} >  </Icon> </Link>
+                <Link href="/download/youtube" > <Icon  boxSize={7} as={FaYoutube} >  </Icon> </Link>
+                <Link href="/download/tiktok" > <Icon  boxSize={7} as={FaTiktok} >  </Icon> </Link>
+            </Flex>
             
         </Box>
     )

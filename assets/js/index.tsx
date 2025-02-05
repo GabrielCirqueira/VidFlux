@@ -3,6 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { YoutubePage } from '@components/Pages/YoutubePage';
 import { TiktokPage } from '@components/Pages/TiktokPage';
+import { TwitterPage } from '@components/Pages/TwitterPage';
 import { InstagramPage } from '@components/Pages/InstagramPage';
 import { Home } from '@components/Home'
 import theme from '@components/theme'
@@ -18,6 +19,7 @@ root.render(
         <Route path="/download/youtube" element={<YoutubePage />} />
         <Route path="/download/tiktok" element={<TiktokPage />} />
         <Route path="/download/instagram" element={<InstagramPage />} />
+        <Route path="/download/twitter" element={<TwitterPage />} />
       </Routes>
     </Router>
   </ChakraProvider>

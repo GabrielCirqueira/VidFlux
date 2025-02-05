@@ -4,6 +4,7 @@ import { Elements } from "@components/Elements";
 import { fetchDownload } from "@components/downloadService";
 import {videoProps} from "@components/types"; 
 import { FaTiktok } from "react-icons/fa";
+import theme from '@components/theme'
 
 export function TiktokPage() {
     const [url, setUrl] = useState<string>("");
@@ -37,7 +38,7 @@ export function TiktokPage() {
     };
 
     return (
-        <Container maxW={'5xl'}>
+        <Container maxW={theme.styles.WidthContainer}>
             <VStack gap={10}>
                 <Elements
                     icon={FaTiktok}
